@@ -2,14 +2,7 @@ import os, sys
 import json
 import urllib
 
-url_lookup = {'prod': 'https://aping-pong.herokuapp.com',
-              'dev': 'localhost:5000'}
-
-global server_url
-
-def use_server_url(kind):
-    global server_url
-    server_url = url_lookup[kind]
+server_url = 'https://aping-pong.herokuapp.com'
 
 def call(path, id_code='', show_cmd=False, is_post=False, **kwargs):
     """Execute curl commands to access game API endpoints.
