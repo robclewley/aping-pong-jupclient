@@ -24,8 +24,6 @@ def call(path, id_code='', show_cmd=False, is_post=False, **kwargs):
                  as form parameters (is_post=True)
     """
     params = []
-    if is_cli:
-        params.append(('cli', 'true'))
     if id_code != '':
         params.append(('private_id', id_code))
     path = urllib.parse.quote(path)
