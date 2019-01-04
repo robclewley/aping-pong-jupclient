@@ -19,9 +19,9 @@ Once a game has been initiated, there is a timeout of about 10 seconds before th
 Each game consists only of a single "point" volley, and the specifications of the ball speed and court dimensions are slightly randomized.
 
 ## Endpoints:
- * `request_game/<level>``
+ * `request_game/<level>`
    - returns a unique `private_id` for the game session and useful contextual metadata about the game court, initial state, etc.
- * `status/<private_id>``
+ * `status/<private_id>`
    - return current state of game.
- * `move/<private_id>/<dx>``
+ * `move/<private_id>/<dx>`
    - can only move paddle up to a maximum given in the status data.
