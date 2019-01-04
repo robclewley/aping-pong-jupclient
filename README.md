@@ -1,6 +1,6 @@
 # APIng pong Jupyter client in binder
 
-This is a JSON REST API-based ping pong game, which means it is agnostic to client-side implementations for play. You can even try to play it from your OS shell using `curl`, e.g. by starting with `curl aping-pong.herokuapp.com/request_game/1` to begin a single-player game at Level 1.
+This is a JSON REST API-based ping pong game that connects to a cloud-hosted server, which means the game is always available and is agnostic to client-side implementations for play. You can even try to play it from your OS shell using `curl`, e.g. by starting with `curl aping-pong.herokuapp.com/request_game/1` to begin a single-player game at Level 1.
 
 The game is intended as a setting to train intermediate-level students in data visualization and artificially intelligent control algorithms ("bots"). The game is designed to be best played by (your) bots, not humans. This example client was created in Python using Jupyter notebooks and is deliberately basic and you can learn to develop a better one to play it effectively.
 
@@ -10,9 +10,9 @@ Click here to play manually to try out the platform: [![Binder](https://mybinder
  * Single and two player (online)
  * Increasing levels of difficulty
 
-Levels 1 and 2 are *single player* (i.e. the game of squash) and can be played immediately by accessing the API. Level 1 uses perfect frictionless physics for all bounces on walls and the paddle. Among other minor differences, level 2 approximates [paddle bounce mechanics](https://gamedev.stackexchange.com/questions/4253/in-pong-how-do-you-calculate-the-balls-direction-when-it-bounces-off-the-paddl) similar to [Pong and Breakout games](https://www.gamasutra.com/view/feature/130053/breaking_down_breakout_system_and_.php) of old: ball direction is reversed back from striking the leading edge of the paddle and is reflected at a shallower angle from the trailing edge. You'll have to try out some observations to infer more specifics.
+Levels 1 and 2 are *single player* against a back wall (like the game of squash) and can be played immediately by accessing the API. Level 1 uses perfect frictionless physics for all bounces on walls and the paddle. Among other minor differences, level 2 approximates [paddle bounce mechanics](https://gamedev.stackexchange.com/questions/4253/in-pong-how-do-you-calculate-the-balls-direction-when-it-bounces-off-the-paddl) similar to [Pong and Breakout games](https://www.gamasutra.com/view/feature/130053/breaking_down_breakout_system_and_.php) of old. It works as if the paddle is rounded: the ball direction is reversed when it strikes the leading edge of the paddle and is reflected at a shallower angle from the trailing edge. You'll have to make some observations to infer the specifics!
 
-Levels 3 and 4 are *two player* and you'll actually need someone else to join the lobby trying to play the same level for you to be paired. There's a timeout if no-one else joins, after which you'll need to re-enter the lobby to start a game. The paddles behavior of levels 3 and 4 match those of levels 1 and 2, respectively.
+Levels 3 and 4 are *two player* and you'll actually need someone else to join the lobby trying to play the same level for you to be paired. There's a timeout of around 20s so if no-one else joins you'll need to re-enter the lobby to start a new game. The paddle behavior of levels 3 and 4 match those of levels 1 and 2, respectively.
 
 Once a game is pending, there is a timeout of about 10 seconds before the ball is served. Status requests will show a negative time (countdown) to reflect this. Note that the game controls are live during the time that the game is pending. The serve of the ball will begin automatically from time 0 from one of the players (randomly selected).
 
