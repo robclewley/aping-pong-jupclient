@@ -18,9 +18,11 @@ Once a game is pending, there is a timeout of about 10 seconds before the ball i
 
 There's a limit of 3 API calls per second per player to prevent spamming and overloading the server. For bot controls, you shouldn't need many requests to determine the information needed for correctly moving the paddle.
 
-Each game consists only of a single "point" volley, and the specifications of the ball speed and court dimensions are slightly randomized. Players have 1 minute after the game is over to request a status update about the outcome, after which the game closes.
+Each game consists only of a single "point" volley, and the specifications of the ball speed and court dimensions are slightly randomized. Players have 1 minute after the game is over to request a status update about the outcome, after which the game closes. The API call counts after the game include up to 1 for any calls prior to game time 0 and none once the game has ended.
 
 ## API endpoints:
+ * `wakeupserver`
+   - Use this to ensure the server is up and ready to accept new games. Repeat periodically until the server responds with a non-empty message before requesting a game.
  * `request_game/<level>`
    - Enter the game lobby to initiate a game at the specified level (see above). It returns a unique `private_id` for the game session and useful contextual metadata about the game court, initial state, etc. (see Data Structures section below).
  * `status/<private_id>`
