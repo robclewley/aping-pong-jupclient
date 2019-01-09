@@ -4,7 +4,7 @@ This is a JSON REST API-based ping pong game that connects to a cloud-hosted ser
 
 The game is intended as a setting to train intermediate-level students in data visualization and artificially intelligent control algorithms ("bots"). The game is designed to be best played by (your) bots, not humans. This example client was created in Python using Jupyter notebooks and is deliberately basic and you can learn to develop a better one to play it effectively.
 
-Click here to play manually to try out the platform (it will take a minute to prepare itself): [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/robclewley/aping-pong-jupclient/master?filepath=play.ipynb)
+Click here to try out the platform with a naive visual interface in a Jupyter notebook (it will take a minute to prepare itself): [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/robclewley/aping-pong-jupclient/master?filepath=play.ipynb)
 
 The server will sleep when not used for extended periods, but it lives [here](https://aping-pong.herokuapp.com/) and you can wake it up by visiting the URL or using the `wakeupserver` API endpoint (see below).
 
