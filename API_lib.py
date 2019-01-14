@@ -42,5 +42,5 @@ def declare_player(level, pID=None, show_cmd=False):
     if pID is None:
         info = call('request_game/{}'.format(level), show_cmd=show_cmd)
     else:
-        info = call('request_game/{}'.format(level), id_code=pID, show_cmd=show_cmd)
+        info = call('request_game/{}/{}'.format(level, pID), show_cmd=show_cmd)
     return info
