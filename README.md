@@ -6,6 +6,12 @@ The game is intended as a setting to train intermediate-level students in data v
 
 The server will sleep when not used for extended periods, but it lives [here](https://aping-pong.herokuapp.com/) and you can wake it up by visiting the URL or using the `wakeupserver` API endpoint (see below).
 
+Here's a live update of the game stats from the server:
+<center>
+    <iframe width="550" height="60" src="https://aping-pong.herokuapp.com/stats_totals" frameborder="0">
+    </iframe>
+</center>
+
 ## An example Jupyter game client runnable in binder
 
 Click here to try out the platform with a naive visual interface in a Jupyter notebook (it will take a minute to prepare itself): [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/robclewley/aping-pong-jupclient/master?filepath=play.ipynb)
