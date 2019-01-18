@@ -1,8 +1,8 @@
 # APIng pong
 
-This is a JSON REST API-based ping pong game that connects to a cloud-hosted server, which means the game is always available and is agnostic to client-side implementations for play. You can even try to play it from your OS shell using `curl`, e.g. by starting with `curl aping-pong.herokuapp.com/request_game/1` to begin a single-player game at Level 1.
+This is a ["serious game"](https://www.growthengineering.co.uk/what-are-serious-games/) of 1- or 2-player Pong intended to train intermediate-level students in data visualization and artificially intelligent control algorithms ("bots"). It  is designed to be played by (your) bots, not humans. The example client in this repo was created in Python using Jupyter notebooks and is deliberately basic so you can learn to develop a better one.
 
-This is a ["serious game"](https://www.growthengineering.co.uk/what-are-serious-games/) intended to train intermediate-level students in data visualization and artificially intelligent control algorithms ("bots"). It  is designed to be played by (your) bots, not humans. The example client in this repo was created in Python using Jupyter notebooks and is deliberately basic so you can learn to develop a better one.
+You play the game by interacting via a JSON REST API to a cloud-hosted server, which means the game is always available and is agnostic to client-side implementations of how you play. You can even try to play it from your OS shell using `curl`, e.g. by starting with `curl aping-pong.herokuapp.com/request_game/1` to begin a single-player game at Level 1.
 
 The server will sleep when not used for extended periods, but it lives [here](https://aping-pong.herokuapp.com/) and you can wake it up by visiting the URL or using the `wakeupserver` API endpoint (see below).
 
