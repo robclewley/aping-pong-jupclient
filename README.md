@@ -6,7 +6,7 @@ You play the game by interacting with a cloud-hosted server via a JSON REST API,
 
 The server will sleep when not used for extended periods, but it lives [here](https://aping-pong.herokuapp.com/) and you can wake it up by visiting the URL or using the `wakeupserver` API endpoint (see below).
 
-Read more about the background for the game on [my blog](https://robclewley.github.io/2019/01/10/pong-via-api-=-aping-pong).
+Read more about the rationale for the game on [my blog](https://robclewley.github.io/2019/01/10/pong-via-api-=-aping-pong).
 
 ## An example Jupyter game client runnable in binder
 
@@ -24,7 +24,9 @@ Once a game is pending, there is a timeout of about 10 seconds before the ball i
 
 There's a limit of 3 API calls per second per player to prevent spamming and overloading the server. For bot controls, you shouldn't need many requests to determine the information needed for correctly moving the paddle.
 
-Each game consists only of a single "point" volley, and the specifications of the ball speed and court dimensions are slightly randomized. Players have 1 minute after the game is over to request a status update about the outcome, after which the game closes. The API call counts after the game include up to 1 for any calls prior to game time 0 and none once the game has ended.
+Each game consists only of a single "point" volley, and the specifications of the ball speed and court dimensions are slightly randomized. Players have 15 seconds after the game is over to request a status update about the outcome, after which the game closes. The API call counts after the game include up to 1 for any calls prior to game time 0 and none once the game has ended.
+
+Only one game per ID is possible at a time, and previous games must finish unless the `cancel` endpoint is used (although the 15 second game reset timer will still be in effect).
 
 There is a public leaderboard on the landing page to incentivize improving volley lengths and reduce the number of API calls necessary to win. Game stats will be shown associated with the public IDs of players. If you wish to "claim" any positions on leaderboards, register a name to the `private_id` matching the `public_id`. You can also reuse your `private_id`, or have multiple of them, as you prefer.
 
@@ -41,6 +43,8 @@ There is a public leaderboard on the landing page to incentivize improving volle
  * `register_name/<private_id>/<public_id>/<name>`
    - Register a name to associate with a public ID, as shown on leaderboards. You have to specify the exact private ID that matches it, i.e. you must have stored the private ID after requesting a game.
    - Names must be 4 to 50 characters, unique, and spaces and mixed case are allowed.
+ * `cancel/<private_id>`
+   - Cancel a current game belonging to this ID. The reset timer will take effect before a new game can be started.
 
 ## Data structures
 
