@@ -20,15 +20,15 @@ Levels 1 and 2 are *single player* against a back wall (like the game of squash)
 
 Levels 3 and 4 are *two player* and you'll actually need someone else to join the lobby trying to play the same level for you to be paired. There's a timeout of around 20s so if no-one else joins you'll need to re-enter the lobby to start a new game. The paddle behavior of levels 3 and 4 match those of levels 1 and 2, respectively.
 
-Once a game is pending, there is a timeout of about 10 seconds before the ball is served. Status requests will show a negative time (countdown) to reflect this. Note that the game controls are live during the time that the game is pending. The serve of the ball will begin automatically from time 0 from one of the players (randomly selected).
+Once a game is pending, there is a timer of about 10 seconds until the ball is served. Status requests will show a negative time (countdown) while pending. Note that the paddle controls are live during this time. The serve of the ball will begin automatically from time 0 from one of the players in a 2-player game (randomly selected).
 
-There's a limit of 3 API calls per second per player to prevent spamming and overloading the server. For bot controls, you shouldn't need many requests to determine the information needed for correctly moving the paddle.
+There's a limit of 3 API calls per second per player to prevent spamming and overloading the server. For bot controls, you shouldn't need many requests to infer the necessary information.
 
-Each game consists only of a single "point" volley, and the specifications of the ball speed and court dimensions are slightly randomized. Players have 15 seconds after the game is over to request a status update about the outcome, after which the game closes. The API call counts after the game include up to 1 for any calls prior to game time 0 and none once the game has ended.
+Each game consists only of a single "point" volley, and the specifications of the ball speed and court dimensions are slightly randomized. Players have 10 seconds after the game is over to request a status update about the outcome, after which the game closes. The API call counts after the game include up to 1 for any calls prior to game time 0 and none once the game has ended.
 
-Only one game per ID is possible at a time, and previous games must finish unless the `cancel` endpoint is used (although the 15 second game reset timer will still be in effect).
+Only one game per ID is possible at a time, and previous games must finish unless the `cancel` endpoint is used (although the 10 second game reset timer will still be in effect). 2-player games cannot be canceled once begun.
 
-There is a public leaderboard on the landing page to incentivize improving volley lengths and reduce the number of API calls necessary to win. Game stats will be shown associated with the public IDs of players. If you wish to "claim" any positions on leaderboards, register a name to the `private_id` matching the `public_id`. You can also reuse your `private_id`, or have multiple of them, as you prefer.
+There is a [public leaderboard on the landing page](https://aping-pong.herokuapp.com/dashboard) to incentivize improving volley lengths and reduce the number of API calls necessary to win. Game stats will be shown associated with the public IDs of players. If you wish to "claim" any positions on leaderboards, register a name to the `private_id` matching the `public_id`. You can also reuse your `private_id`, or have multiple of them, as you prefer.
 
 
 ## API endpoints:
