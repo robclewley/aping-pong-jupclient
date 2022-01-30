@@ -7,7 +7,7 @@ for ext in $(cat labextensions.txt)
 do
     jupyter labextension install --no-build $ext
 done
-jupyter lab build --dev
+jupyter lab build --dev-build=True
 jupyter labextension list | sort
 
 if [ "${NB_UID}not-on-binder" = "not-on-binder" ]; then
